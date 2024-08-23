@@ -47,5 +47,31 @@ protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+    decimalFormat = new DecimalFormat("#.############");
+
+    inputDisplay = findViewById(R.id.input);
+    outputDisplay = findViewById(R.id.output);
+
+    button0 = findViewById(R.id.btn0);
+    button1 = findViewById(R.id.btn1);
+    button2 = findViewById(R.id.btn2);
+    button3 = findViewById(R.id.btn3);
+    button4 = findViewById(R.id.btn4);
+    button5 = findViewById(R.id.btn5);
+    button6 = findViewById(R.id.btn6);
+    button7 = findViewById(R.id.btn7);
+    button8 = findViewById(R.id.btn8);
+    button9 = findViewById(R.id.btn9);
+
+    buttonAdd = findViewById(R.id.add);
+    buttonSub = findViewById(R.id.subtract);
+    buttonDivide = findViewById(R.id.division);
+    buttonDot = findViewById(R.id.btnPoint);
+    buttonMultiply = findViewById(R.id.multiply);
+    buttonClear = findViewById(R.id.clear);
+    buttonOFF = findViewById(R.id.off);
+    buttonEqual = findViewById(R.id.equal);
+    buttonPercent = findViewById(R.id.percent);
+
 }
 }

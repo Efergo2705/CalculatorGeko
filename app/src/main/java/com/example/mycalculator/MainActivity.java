@@ -156,9 +156,83 @@ protected void onCreate(Bundle savedInstanceState) {
         public void onClick(View view) {
             calcultaions();
             currentSymbol = SUBSTRACTION;
-            outputDisplay.setText(decimalFormat.format(firstValue) + "+");
+            outputDisplay.setText(decimalFormat.format(firstValue) + "-");
         }
     });
+
+    buttonSub.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            calcultaions();
+            currentSymbol = SUBSTRACTION;
+            outputDisplay.setText(decimalFormat.format(firstValue) + "-");
+        }
+    });
+
+    buttonMultiply.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            calcultaions();
+            currentSymbol = MULTIPLICATION;
+            outputDisplay.setText(decimalFormat.format(firstValue) + "*");
+        }
+    });
+
+    buttonDivide.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            calcultaions();
+            currentSymbol = DIVISION;
+            outputDisplay.setText(decimalFormat.format(firstValue) + "/");
+        }
+    });
+
+    buttonPercent.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            calcultaions();
+            currentSymbol = PERCENT;
+            outputDisplay.setText(decimalFormat.format(firstValue) + "%");
+        }
+    });
+
+    buttonDot.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            inputDisplay.setText(inputDisplay.getText() + ".");
+        }
+    });
+
+    buttonClear.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if (inputDisplay.getText().length() > 0) {
+                CharSequence currentText = inputDisplay.getText();
+                inputDisplay.setText(currentText.subSequence(0, currentText.length() - 1));
+            } else {
+                firstValue = Double.NaN;
+                secondValue = Double.NaN;
+                inputDisplay.setText("");
+                outputDisplay.setText("");
+            }
+        }
+    });
+    buttonOFF.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            finish();
+        }
+    });
+    buttonEqual.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            calcultaions();
+            outputDisplay.setText(decimalFormat.format(firstValue));
+            firstValue = Double.NaN;
+            currentSymbol = '0';
+        }
+    });
+
 }
 
     private void calcultaions(){

@@ -1,25 +1,51 @@
 package com.example.mycalculator;
 
-import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import com.google.android.material.button.MaterialButton;
+import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final char ADDTION = '+';
+    private static final char SUSTRACTION = '-';
+    private static final char MULTIPLICATION = '*';
+    private static final char DIVISION = '/';
+    private static final char PERCENT = '%';
+
+    private char currentSymbol;
+
+    private double firstValue = Double.NaN;
+    private double secondValue;
+    private TextView inputDisplay, outputDisplay;
+    private DecimalFormat decimalFormat;
+    private MaterialButton button0,
+            button1,
+            button2,
+            button3,
+            button4,
+            button5,
+            button6,
+            button7,
+            button8,
+            button9,
+            buttonDot,
+            buttonAdd,
+            buttonSub,
+            buttonMultiply,
+            buttonDivide,
+            buttonPercent,
+            buttonClear,
+            buttonOFF,
+            buttonEqual;
 
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    EdgeToEdge.enable(this);
     setContentView(R.layout.activity_main);
-    ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.tvResult), (v, insets) -> {
-        Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-        v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-        return insets;
-    });
+
 }
 }

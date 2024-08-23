@@ -9,8 +9,8 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final char ADDTION = '+';
-    private static final char SUSTRACTION = '-';
+    private static final char ADDITION = '+';
+    private static final char SUBSTRACTION = '-';
     private static final char MULTIPLICATION = '*';
     private static final char DIVISION = '/';
     private static final char PERCENT = '%';
@@ -63,15 +63,123 @@ protected void onCreate(Bundle savedInstanceState) {
     button8 = findViewById(R.id.btn8);
     button9 = findViewById(R.id.btn9);
 
+    buttonDot = findViewById(R.id.btnPoint);
     buttonAdd = findViewById(R.id.add);
     buttonSub = findViewById(R.id.subtract);
-    buttonDivide = findViewById(R.id.division);
-    buttonDot = findViewById(R.id.btnPoint);
     buttonMultiply = findViewById(R.id.multiply);
+    buttonDivide = findViewById(R.id.division);
+    buttonPercent = findViewById(R.id.percent);
     buttonClear = findViewById(R.id.clear);
     buttonOFF = findViewById(R.id.off);
     buttonEqual = findViewById(R.id.equal);
-    buttonPercent = findViewById(R.id.percent);
 
+
+    button1.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            inputDisplay.setText(inputDisplay.getText() + "1");
+        }
+    });
+
+    button2.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            inputDisplay.setText(inputDisplay.getText() + "2");
+        }
+    });
+
+    button3.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            inputDisplay.setText(inputDisplay.getText() + "3");
+        }
+    });
+
+    button4.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            inputDisplay.setText(inputDisplay.getText() + "4");
+        }
+    });
+
+    button5.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            inputDisplay.setText(inputDisplay.getText() + "5");
+        }
+    });
+
+    button6.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            inputDisplay.setText(inputDisplay.getText() + "6");
+        }
+    });
+
+    button7.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            inputDisplay.setText(inputDisplay.getText() + "7");
+        }
+    });
+    button8.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            inputDisplay.setText(inputDisplay.getText() + "8");
+        }
+    });
+
+    button9.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            inputDisplay.setText(inputDisplay.getText() + "9");
+        }
+    });
+    button0.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            inputDisplay.setText(inputDisplay.getText() + "0");
+        }
+    });
+
+    buttonAdd.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            calcultaions();
+            currentSymbol = ADDITION;
+            outputDisplay.setText(decimalFormat.format(firstValue) + "+");
+        }
+    });
+
+    buttonSub.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            calcultaions();
+            currentSymbol = SUBSTRACTION;
+            outputDisplay.setText(decimalFormat.format(firstValue) + "+");
+        }
+    });
 }
+
+    private void calcultaions(){
+        if (!Double.isNaN(firstValue)) {
+            secondValue = Double.parseDouble(inputDisplay.getText().toString());
+            inputDisplay.setText(null);
+            if (currentSymbol == ADDITION)
+                firstValue = this.firstValue + secondValue;
+            else if (currentSymbol == SUBSTRACTION)
+                firstValue = this.firstValue - secondValue;
+            else if (currentSymbol == MULTIPLICATION)
+                firstValue = this.firstValue * secondValue;
+            else if (currentSymbol == DIVISION)
+                firstValue = this.firstValue / secondValue;
+            else if (currentSymbol == PERCENT)
+                firstValue = this.firstValue % secondValue;
+        } else {
+            try {
+                firstValue = Double.parseDouble(inputDisplay.getText().toString());
+            } catch (Exception e) {
+            }
+        }
+    }
 }
